@@ -1,12 +1,18 @@
-<h1><%= @post.title %></h1>
+<div class="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-lg">
+  <h1 class="text-3xl font-bold text-gray-800 mb-4"><%= @post.title %></h1>
 
-<p><%= @post.body %></p>
+  <p class="text-gray-700 text-lg mb-6"><%= @post.body %></p>
 
-<p><strong>Author:</strong> <%= @post.user.email %></p>
-<p><strong>Published on:</strong> <%= @post.created_at.strftime("%B %d, %Y") %></p>
+  <div class="text-sm text-gray-600 mb-4">
+    <p><strong>Author:</strong> <%= @post.user.email %></p>
+    <p><strong>Published on:</strong> <%= @post.created_at.strftime("%B %d, %Y") %></p>
+  </div>
 
-<%= link_to 'Back to Posts', root_path, class: 'btn btn-secondary' %>
-<% if current_user.try(:admin) %>
-  <%= link_to "Edit Post", edit_post_path %>
-  <%= link_to "Delete Post", post_path, 'data-turbo-method': :delete, 'data-turbo-confirm': "Are you sure?" %>
-<% end %>
+  <div class="flex space-x-4">
+    <%= link_to 'Back to Posts', root_path, class: 'btn bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600' %>
+    <% if current_user.try(:admin) %>
+      <%= link_to "Edit Post", edit_post_path, class: 'btn bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600' %>
+      <%= link_to "Delete Post", post_path, 'data-turbo-method': :delete, 'data-turbo-confirm': "Are you sure?", class: 'btn bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600' %>
+    <% end %>
+  </div>
+</div>
