@@ -1,10 +1,17 @@
 <h1>Blog Posts</h1>
 
 <% @posts.each do |post| %>
-  <div class="post">
-    <h2><%= link_to post.title, post_path(post) %></h2>
-    <p><%= truncate(post.body, length: 200) %></p>
-    <p><small>Published on <%= post.created_at.strftime("%B %d, %Y") %> by <%= post.user.email %></small></p>
-  </div>
-  <hr>
+  <%=link_to post_path(post), class: "no-underline" do%>
+    <div class="post bg-white shadow-md rounded-lg p-6 mb-6 hover:shadow-lg">
+      <h2 class="text-2xl font-bold text-blue-600">
+      <%= post.title %>
+      </h2>
+      <p class="text-gray-700 mt-4">
+      <%= truncate(post.body, length: 200) %>
+      </p>
+      <p class="text-sm text-gray-500 mt-2">
+      Published on <%= post.created_at.strftime("%B %d, %Y") %> by <%= post.user.email %>
+      </p>
+    </div>
+  <% end %>
 <% end %>
