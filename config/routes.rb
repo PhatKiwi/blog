@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
 
   resources :posts
+  resources :comments, only: [:create, :destroy]
 
   # Defines the root path route ("/")
   root "posts#index"
