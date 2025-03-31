@@ -1,0 +1,7 @@
+<div class="text-gray-300 bg-gray-800 p-4 rounded-md mb-1">
+  <header>
+    <p><small><%= comment.user.email %> | <%= comment.created_at.strftime("%B %d, %Y") %></small></p>
+  </header>
+
+  <p><%= comment.body %></p>
+</div>
