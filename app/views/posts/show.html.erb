@@ -6,3 +6,7 @@
 <p><strong>Published on:</strong> <%= @post.created_at.strftime("%B %d, %Y") %></p>
 
 <%= link_to 'Back to Posts', root_path, class: 'btn btn-secondary' %>
+<% if current_user.try(:admin) %>
+  <%= link_to "Edit Post", edit_post_path %>
+  <%= link_to "Delete Post", post_path, 'data-turbo-method': :delete, 'data-turbo-confirm': "Are you sure?" %>
+<% end %>
