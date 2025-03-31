@@ -4,7 +4,7 @@
   <div class="post">
     <h2><%= link_to post.title, post_path(post) %></h2>
     <p><%= truncate(post.body, length: 200) %></p>
-    <p><small>Published on <%= post.published_at.strftime("%B %d, %Y") %></small></p>
+    <p><small>Published on <%= post.created_at.strftime("%B %d, %Y") %> by <%= post.user.email %></small></p>
   </div>
   <hr>
 <% end %>

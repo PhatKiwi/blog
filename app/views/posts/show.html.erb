@@ -1,0 +1,8 @@
+<h1><%= @post.title %></h1>
+
+<p><%= @post.body %></p>
+
+<p><strong>Author:</strong> <%= @post.user.email %></p>
+<p><strong>Published on:</strong> <%= @post.created_at.strftime("%B %d, %Y") %></p>
+
+<%= link_to 'Back to Posts', root_path, class: 'btn btn-secondary' %>
