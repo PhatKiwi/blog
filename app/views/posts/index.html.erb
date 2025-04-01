@@ -9,7 +9,7 @@
           <%= post.title %>
         </h2>
         <p class="text-sm text-gray-400 mt-2">
-          Published on <%= post.created_at.strftime("%B %d, %Y") %> by <%= post.user.email %>
+          Published on <%= post.created_at.strftime("%B %d, %Y") %> by <%= post.user.username %>
         </p>
         <p class="text-sm text-gray-300 mt-2">
           Comments: <%= post.comments.count %>

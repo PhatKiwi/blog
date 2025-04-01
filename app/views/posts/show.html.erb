@@ -6,7 +6,7 @@
     <p class="text-gray-300 text-lg mb-6"><%= markdown(@post.body) %></p>
 
     <div class="text-sm text-gray-400 mb-4">
-      <p><strong class="text-gray-400">Author:</strong> <%= @post.user.email %></p>
+      <p><strong class="text-gray-400">Author:</strong> <%= @post.user.username %></p>
       <p><strong class="text-gray-400">Published on:</strong> <%= @post.created_at.strftime("%B %d, %Y") %></p>
     </div>
 
