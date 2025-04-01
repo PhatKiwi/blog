@@ -71,3 +71,5 @@ gem "devise", "~> 4.9"
 gem "tailwindcss-rails", "~> 4.2"
 
 gem "redcarpet", "~> 3.6"
+
+gem "acts-as-taggable-on", "~> 12.0"
