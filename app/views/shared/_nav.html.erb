@@ -1,0 +1,23 @@
+<nav class="bg-gray-900 text-white p-0.5 fixed top-0 left-0 w-full shadow-md">
+  <div class="container mx-auto flex justify-between items-center">
+    <% if user_signed_in? %>
+      <div>
+        <p>Logged in as <strong class="text-white"><%= current_user.email %></strong>.</p>
+      </div>
+      <div class="flex space-x-4">
+        <% if current_user.admin? %>
+          <%= link_to "New Blog Post", new_post_path, class: "bg-gray-700 text-white px-4 py-2 rounded hover:bg-gray-800 no-underline" %>
+        <% end %>
+        <%= link_to "Logout", destroy_user_session_path, "data-turbo-method": :delete, class: "bg-gray-700 text-white px-4 py-2 rounded hover:bg-gray-800 no-underline" %>
+      </div>
+    <% else %>
+      <div>
+        <p>Welcome, Guest! Please sign in or sign up.</p>
+      </div>
+      <div class="flex space-x-4">
+        <%= link_to "Sign up", new_user_registration_path, class: "bg-gray-700 text-white px-4 py-2 rounded hover:bg-gray-800 no-underline" %>
+        <%= link_to "Login", new_user_session_path, class: "bg-gray-700 text-white px-4 py-2 rounded hover:bg-gray-800 no-underline" %>
+      </div>
+    <% end %>
+  </div>
+</nav>
