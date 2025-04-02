@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   before_action :set_comment, only: [:destroy]
+  before_action :set_post
 
   def index
     @comments = Comment.all
@@ -11,13 +12,16 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @post = Post.find(params[:post_id])
     @comment = @post.comments.create(comment_params)
     @comment.user_id = current_user.id
-    if @comment.save
-      redirect_to @post
-    else
-      flash.now[:danger] = "error"
+
+    respond_to do |format|
+      if @comment.save
+        format.turbo_stream
+        format.html { redirect_to @post, notice: 'Comment was successfully created.' }
+      else
+        flash.now[:alert] = 'Error creating comment.'
+      end
     end
   end
 
@@ -27,6 +31,10 @@ class CommentsController < ApplicationController
   end
 
   private
+
+  def set_post
+    @post = Post.find(params[:post_id])
+  end
 
   def set_comment
     @comment = Comment.find(params[:id])
