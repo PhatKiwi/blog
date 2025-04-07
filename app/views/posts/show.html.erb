@@ -30,9 +30,7 @@
 
   <div class="mt-8">
       <h2 class="text-3xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight mb-3">
-        <%= turbo_frame_tag "post_#{@post.id}_comment_count" do %>
-          <%= pluralize(@post.comments.size, 'Comment') %>
-        <% end %>
+        <%= pluralize(@post.comments.size, 'Comment') %>
       </h2>
       
     <div class="bg-gray-900 p-6 rounded-lg">
@@ -43,9 +41,7 @@
     </div>
       <% if current_user %>
       <div class="p6">
-        <%= turbo_frame_tag "post_comment_form" do %>
-          <%= render partial: 'comments/form'%>
-        <% end %>
+        <%= render partial: 'comments/form'%>
       </div>
       <% end%>
   </div>

@@ -17,7 +17,6 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.turbo_stream
         format.html { redirect_to @post, notice: 'Comment was successfully created.' }
       else
         flash.now[:alert] = 'Error creating comment.'
