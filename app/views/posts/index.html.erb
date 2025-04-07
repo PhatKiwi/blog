@@ -2,26 +2,8 @@
   <%= render "shared/nav"%>
   <h1 class="text-3xl font-bold text-gray-100 mb-6 mt-6">Blog Posts</h1>
 
-  <% @posts.each do |post| %>
-    <%= link_to post_path(post), class: "no-underline" do %>
-      <div class="bg-gray-800 shadow-md rounded-lg p-6 mb-6 hover:shadow-lg hover:bg-gray-700 transition">
-        <div class="text-2xl font-bold text-blue-400">
-          <%= post.title %>
-        </div>
-        <div class="text-sm text-gray-400 mt-2">
-          Published on <%= post.created_at.strftime("%B %d, %Y") %> by <%= post.user.username %>
-        </div>
-        <div class="text-sm text-gray-300 mt-2 mb-2">
-          Comments: <%= post.comments.count %>
-        </div>
-        <div>
-          <% post.tag_list.each do |tag| %>
-            <span class="inline-block bg-gray-600 text-white text-sm font-medium rounded-full px-3 py-1 mr-2">
-              #<%= tag %>
-            </span>
-          <% end %> 
-        </div>
-      </div>
-    <% end %>
-  <% end %>
+  <%= turbo_stream_from "posts" %>
+  <div id="posts">
+    <%= render partial: "posts/post", collection: @posts %>
+  </div>
 </div>

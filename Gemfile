@@ -73,3 +73,5 @@ gem "tailwindcss-rails", "~> 4.2"
 gem "redcarpet", "~> 3.6"
 
 gem "acts-as-taggable-on", "~> 12.0"
+
+gem "redis", "~> 5.4"
