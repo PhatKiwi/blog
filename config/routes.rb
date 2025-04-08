@@ -4,6 +4,9 @@ Rails.application.routes.draw do
 
 
   resources :posts do
+    member do
+      get :publish
+    end
     resources :comments, only: [:create, :new, :destroy]
   end
 

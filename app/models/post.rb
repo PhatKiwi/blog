@@ -7,4 +7,14 @@ class Post < ApplicationRecord
   validates :body, presence: true
 
   after_create_commit -> { broadcast_prepend_to "posts" }
+
+  scope :published, -> { where(published: true) }
+
+  def draft?
+    !published?
+  end
+
+  def published?
+    published
+  end
 end
