@@ -16,10 +16,6 @@ class User < ApplicationRecord
     avatar.variant(resize_to_limit: [150, 150]).processed
   end
 
-  def comment_avatar
-    avatar.variant(resize_to_limit: [50, 50]).processed
-  end
-
   private
 
   def add_default_avatar

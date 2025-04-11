@@ -1,8 +1,8 @@
-<nav class="bg-gray-900 text-white p-0.5 fixed top-0 left-0 w-full shadow-md">
-  <div class="container mx-auto flex justify-between items-center">
+<div class="bg-gray-900 text-white p-0.5 fixed top-0 left-0 w-full shadow-md">
+  <div class="container mx-auto flex justify-between items-center" style="height: 75px;">
     <% if user_signed_in? %>
-      <div>
-        <p>Logged in as <strong class="text-white"><%= current_user.username %></strong>.</p>
+      <div class="flex items-center space-x-4">
+        <%= image_tag(current_user.avatar_thumbnail, style: "border-radius: 50%; width: 50px; height: 50px; object-fit: cover;") %><strong class="text-white"><%= current_user.username %></strong>
       </div>
       <div class="flex space-x-4">
         <% if current_user.admin? %>
@@ -21,4 +21,4 @@
       </div>
     <% end %>
   </div>
-</nav>
+</div>

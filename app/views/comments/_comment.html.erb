@@ -1,6 +1,9 @@
 <%= turbo_frame_tag dom_id(comment) do %>
-  <div class=" bg-gray-800 p-4 rounded-md mb-1">
-    <div class="text-gray-400"><small><%= comment.user.username %> | <%= comment.created_at.strftime("%B %d, %Y") %></small></div>
+  <div class="bg-gray-800 p-4 rounded-md mb-1">
+    <div class="text-gray-400 flex items-center mx-auto space-x-2" style="height: 50px;">
+      <%= image_tag(comment.user.avatar_thumbnail, style: "border-radius: 50%; width: 35px; height: 35px; object-fit: cover;") if comment.user.avatar.attached? %>
+      <small><%= comment.user.username %> | <%= comment.created_at.strftime("%B %d, %Y") %></small>
+    </div>
     <div class="text-gray-300"><%= comment.body %></div>
   </div>
 <% end %>
