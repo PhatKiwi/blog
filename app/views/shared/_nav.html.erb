@@ -8,6 +8,7 @@
         <% if current_user.admin? %>
           <%= link_to "New Blog Post", new_post_path, class: "bg-gray-700 text-white px-4 py-2 rounded hover:bg-gray-800 no-underline" %>
         <% end %>
+        <%= link_to "Edit Profile", edit_user_registration_path, class: "bg-gray-700 text-white px-4 py-2 rounded hover:bg-gray-800 no-underline" %>
         <%= link_to "Logout", destroy_user_session_path, "data-turbo-method": :delete, class: "bg-gray-700 text-white px-4 py-2 rounded hover:bg-gray-800 no-underline" %>
       </div>
     <% else %>

@@ -3,6 +3,15 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
+  <div class="flex">
+    <%= image_tag(resource.avatar_thumbnail, style: "border-radius: 50%; width: 100px; height: 100px; object-fit: cover;") if resource.avatar.attached? %>
+  </div>
+
+  <div class="flex flex-col">
+    <%= f.label :avatar %>
+    <%= f.file_field :avatar%>
+  </div>
+
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>

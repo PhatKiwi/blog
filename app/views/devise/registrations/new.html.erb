@@ -3,6 +3,11 @@
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "space-y-6 mb-6" }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
+    
+    <div class="flex flex-col">
+      <%= f.label :avatar, class: "text-sm font-medium text-gray-200" %>
+      <%= f.file_field :avatar%>
+    </div>
 
     <div class="flex flex-col">
       <%= f.label :email, class: "text-sm font-medium text-gray-200" %>
