@@ -19,15 +19,18 @@
       <% end %> 
     </div>
 
-    <div class="flex space-x-4 mt-4">
-      <%= link_to 'Back to Posts', root_path, class: 'btn bg-gray-700 text-white px-4 py-2 rounded hover:bg-gray-600' %>
-      <% if current_user.try(:admin) %>
-        <%= link_to "Edit Post", edit_post_path, class: 'btn bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-500' %>
-        <%= link_to "Delete Post", post_path, 'data-turbo-method': :delete, 'data-turbo-confirm': "Are you sure?", class: 'btn bg-red-600 text-white px-4 py-2 rounded hover:bg-red-500' %>
-        <% if @post.draft? %>
-          <%= link_to "Publish Post", publish_post_path(@post), class: 'btn bg-green-600 text-white px-4 py-2 rounded hover:bg-green-500' %>
-        <% end%>
-      <% end %>
+    <div class="flex items-center justify-between mt-6 pt-4 border-t border-gray-700">
+      <div class="flex space-x-4">
+        <%= link_to 'Back to Posts', root_path, class: 'btn bg-gray-700 text-white px-4 py-2 rounded hover:bg-gray-600' %>
+        <% if current_user.try(:admin) %>
+          <%= link_to "Edit Post", edit_post_path, class: 'btn bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-500' %>
+          <%= link_to "Delete Post", post_path, 'data-turbo-method': :delete, 'data-turbo-confirm': "Are you sure?", class: 'btn bg-red-600 text-white px-4 py-2 rounded hover:bg-red-500' %>
+          <% if @post.draft? %>
+            <%= link_to "Publish Post", publish_post_path(@post), class: 'btn bg-green-600 text-white px-4 py-2 rounded hover:bg-green-500' %>
+          <% end%>
+        <% end %>
+      </div>
+      <%= render 'likes/button', post: @post %>
     </div>
   </div>
 

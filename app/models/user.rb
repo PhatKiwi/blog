@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
   has_many :posts
   has_many :comments
+  has_many :likes, dependent: :destroy
   has_one_attached :avatar
 
   after_commit :add_default_avatar, on: [:create, :update]

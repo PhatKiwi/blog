@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       get :publish
     end
     resources :comments, only: [:create, :new, :destroy]
+    resources :likes, only: [:create, :destroy]
   end
 
   # Defines the root path route ("/")
